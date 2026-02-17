@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Creator Studio - Free Faceless Content Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 AI Content Creator Studio</h1>
+            <p>Create amazing faceless content with AI - Completely Free!</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" onclick="showTab('dashboard')">📊 Dashboard</button>
+            <button class="tab-button" onclick="showTab('script')">📝 Script Writer</button>
+            <button class="tab-button" onclick="showTab('image')">🎨 Text to Image</button>
+            <button class="tab-button" onclick="showTab('video')">🎬 Text to Video</button>
+            <button class="tab-button" onclick="showTab('edit')">✂️ Video Editor</button>
+            <button class="tab-button" onclick="showTab('audio')">🎵 Text to Speech</button>
+            <button class="tab-button" onclick="showTab('reels')">📱 Auto Reels</button>
+        </nav>
+
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <h2>Welcome to Your AI Content Studio!</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>📝 AI Script Writing</h3>
+                    <p>Generate engaging scripts for your faceless videos</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎨 Text to Image</h3>
+                    <p>Create stunning visuals from text descriptions</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎬 Text to Video</h3>
+                    <p>Generate videos from text using AI</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✂️ Video Editing</h3>
+                    <p>Edit videos directly in your browser</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎵 Text to Speech</h3>
+                    <p>Add voiceovers to your content</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 Auto Reels</h3>
+                    <p>Create social media content automatically</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Script Writer Tab -->
+        <div id="script" class="tab-content">
+            <h2>📝 AI Script Writer</h2>
+            <div class="input-group">
+                <label>Content Topic:</label>
+                <input type="text" id="scriptTopic" placeholder="Enter your video topic..." value="Top 5 AI tools for content creation">
+            </div>
+            <div class="input-group">
+                <label>Video Length:</label>
+                <select id="scriptLength">
+                    <option value="short">Short (30-60 seconds)</option>
+                    <option value="medium" selected>Medium (1-3 minutes)</option>
+                    <option value="long">Long (3-5 minutes)</option>
+                </select>
+            </div>
+            <button onclick="generateScript()" class="btn-primary">🤖 Generate Script</button>
+            <div id="scriptResult" class="result-box"></div>
+        </div>
+
+        <!-- Text to Image Tab -->
+        <div id="image" class="tab-content">
+            <h2>🎨 Text to Image Generator</h2>
+            <div class="input-group">
+                <label>Image Prompt:</label>
+                <textarea id="imagePrompt" rows="3" placeholder="Describe the image you want to create...">A futuristic AI robot creating content in a digital studio, neon lights, cyberpunk style</textarea>
+            </div>
+            <div class="input-group">
+                <label>Image Size:</label>
+                <select id="imageSize">
+                    <option value="1024x1024">Square (1024x1024)</option>
+                    <option value="1152x896" selected>Landscape (1152x896)</option>
+                    <option value="896x1152">Portrait (896x1152)</option>
+                </select>
+            </div>
+            <button onclick="generateImage()" class="btn-primary">🎨 Generate Image</button>
+            <div id="imageResult" class="result-box"></div>
+        </div>
+
+        <!-- Text to Video Tab -->
+        <div id="video" class="tab-content">
+            <h2>🎬 Text to Video Generator</h2>
+            <div class="input-group">
+                <label>Video Description:</label>
+                <textarea id="videoPrompt" rows="4" placeholder="Describe the video you want to create...">A serene nature scene with mountains, lakes, and wildlife in 4K quality</textarea>
+            </div>
+            <div class="input-group">
+                <label>Video Duration:</label>
+                <select id="videoDuration">
+                    <option value="4">4 seconds</option>
+                    <option value="8" selected>8 seconds</option>
+                    <option value="16">16 seconds</option>
+                </select>
+            </div>
+            <button onclick="generateVideo()" class="btn-primary">🎬 Generate Video</button>
+            <div id="videoResult" class="result-box"></div>
+        </div>
+
+        <!-- Video Editor Tab -->
+        <div id="edit" class="tab-content">
+            <h2>✂️ Video Editor</h2>
+            <div class="input-group">
+                <label>Upload Video:</label>
+                <input type="file" id="videoFile" accept="video/*">
+            </div>
+            <div class="input-group">
+                <label>Start Time (seconds):</label>
+                <input type="number" id="startTime" value="0" min="0">
+            </div>
+            <div class="input-group">
+                <label>End Time (seconds):</label>
+                <input type="number" id="endTime" value="10" min="1">
+            </div>
+            <button onclick="editVideo()" class="btn-primary">✂️ Process Video</button>
+            <div id="editResult" class="result-box"></div>
+        </div>
+
+        <!-- Text to Speech Tab -->
+        <div id="audio" class="tab-content">
+            <h2>🎵 Text to Speech</h2>
+            <div class="input-group">
+                <label>Text to Convert:</label>
+                <textarea id="ttsText" rows="4" placeholder="Enter text to convert to speech...">Welcome to the future of content creation with AI!</textarea>
+            </div>
+            <div class="input-group">
+                <label>Voice Style:</label>
+                <select id="voiceStyle">
+                    <option value="neutral">Neutral</option>
+                    <option value="excited" selected>Excited</option>
+                    <option value="professional">Professional</option>
+                    <option value="casual">Casual</option>
+                </select>
+            </div>
+            <button onclick="generateSpeech()" class="btn-primary">🎵 Generate Speech</button>
+            <div id="audioResult" class="result-box"></div>
+        </div>
+
+        <!-- Auto Reels Tab -->
+        <div id="reels" class="tab-content">
+            <h2>📱 Auto Reels Creator</h2>
+            <div class="input-group">
+                <label>Content Theme:</label>
+                <input type="text" id="reelTheme" placeholder="Enter your reel theme..." value="AI productivity tips">
+            </div>
+            <div class="input-group">
+                <label>Platform:</label>
+                <select id="platform">
+                    <option value="tiktok">TikTok (9:16)</option>
+                    <option value="instagram" selected>Instagram Reels (9:16)</option>
+                    <option value="youtube">YouTube Shorts (9:16)</option>
+                </select>
+            </div>
+            <button onclick="createAutoReel()" class="btn-primary">📱 Create Auto Reel</button>
+            <div id="reelResult" class="result-box"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.7/dist/umd/ffmpeg.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
